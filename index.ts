@@ -1,3 +1,5 @@
+import { getFilterCourse } from "./utils/getFilterCourse";
+import { getSortCourse } from "./utils/getSortCourse";
 // Список курсов
 let courses = [
   { name: "Courses in England", prices: [0, 100] },
@@ -14,3 +16,11 @@ let courses = [
 let requiredRange1 = [null, 200];
 let requiredRange2 = [100, 350];
 let requiredRange3 = [200, null];
+
+// ? При фильтрации могут появляться пограничные случаи, когда диапазон цен частично входит в фильтрацию.
+// ? Считаю что отображать частично входящий диапазон тоже необходимо. Так как внутри курсов есть курсы с ценой, попадающие под условия фильтрации
+
+const filterCourse = getFilterCourse(courses, requiredRange1);
+console.log(filterCourse);
+const sortCourse = getSortCourse(filterCourse, true);
+console.log(sortCourse);
