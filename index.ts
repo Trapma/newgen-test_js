@@ -21,6 +21,8 @@ let requiredRange3 = [200, null];
 // ? Считаю что отображать частично входящий диапазон тоже необходимо.
 
 const filterCourse = getFilterCourse(courses, requiredRange1);
-console.log(filterCourse);
-const sortCourse = getSortCourse(filterCourse, true);
-console.log(sortCourse);
+console.log("filter", filterCourse);
+const sortCourseA = getSortCourse(filterCourse, true);
+console.log("sort ascending", sortCourseA);
+const sortCourseD = getSortCourse(filterCourse, false);
+console.log("sort descending", sortCourseD);
