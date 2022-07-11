@@ -19,7 +19,7 @@ export function getFilterCourse(courses: courses, reqRange: any[]) {
     let condition: boolean = false;
 
     const start = Math.max(coursePrice.start, reqPrice.start);
-    const end = Math.max(coursePrice.end, reqPrice.end);
+    const end = Math.min(coursePrice.end, reqPrice.end);
     if (start < end || start == end) {
       return {
         name: course.name,
