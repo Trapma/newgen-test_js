@@ -12,15 +12,15 @@ export function getSortCourse(courses: courses, ascending: boolean) {
   return courses.sort((prev, next) => {
     const prevPrice = {
       start: prev.prices[0] ? prev.prices[0] : 0,
-      end: prev.prices[1] ? prev.prices[1] : 0,
+      end: prev.prices[1] ? prev.prices[1] : Infinity,
     };
     const nextPrice = {
       start: next.prices[0] ? next.prices[0] : 0,
-      end: next.prices[1] ? next.prices[1] : 0,
+      end: next.prices[1] ? next.prices[1] : Infinity,
     };
-    const preValue = !prevPrice.end ? prevPrice.start : prevPrice.end;
-    const nextValue = !nextPrice.end ? nextPrice.start : nextPrice.end;
 
+    const preValue = prevPrice.start;
+    const nextValue = nextPrice.start;
     return condition(preValue, nextValue);
   });
 }
